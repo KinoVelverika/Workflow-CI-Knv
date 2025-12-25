@@ -14,11 +14,15 @@ jobs:
           python-version: '3.10'
           
       - name: Install Dependencies
-        run: pip install -r requirements.txt
+        run: |
+          cd Membangun_model
+          pip install -r requirements.txt
           
       - name: Run MLflow Project
         env:
           MLFLOW_TRACKING_URI: ${{ secrets.MLFLOW_TRACKING_URI }}
           MLFLOW_TRACKING_USERNAME: ${{ secrets.MLFLOW_TRACKING_USERNAME }}
           MLFLOW_TRACKING_PASSWORD: ${{ secrets.MLFLOW_TRACKING_PASSWORD }}
-        run: python modelling.py
+        run: |
+          cd Membangun_model
+          python modelling.py
