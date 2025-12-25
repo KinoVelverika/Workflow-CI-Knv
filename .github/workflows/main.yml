@@ -13,10 +13,11 @@ jobs:
         with:
           python-version: '3.10'
           
+      # --- BAGIAN INI KUNCINYA ---
+      # Kita install manual supaya tidak tergantung file requirements.txt
       - name: Install Dependencies
         run: |
-          cd Membangun_model
-          pip install -r requirements.txt
+          pip install pandas scikit-learn mlflow dagshub
           
       - name: Run MLflow Project
         env:
